@@ -1,84 +1,91 @@
-# Week 01 — Damage Resolution
+# Week 01 — 伤害结算
 
-## Goal
+## 目标
 
-Train the ability to turn a small game rule into a concrete, implementable design before writing code.
+训练把一个简单游戏规则，在写代码之前转换成具体、可实现设计的能力。
 
-This is deliberately a small problem. Do not turn it into a full combat framework.
+这个问题故意设计得很小。
 
-## Requirements
+**不要把它扩展成完整战斗框架。**
 
-Implement a small RPG-style damage-resolution module.
+## 需求
 
-A character has:
+实现一个简单的 RPG 风格伤害结算模块。
 
-- current HP;
-- maximum HP;
-- attack power;
-- defense power;
-- alive/dead state derived from HP.
+一个角色拥有：
 
-An attack has:
+- 当前 HP；
+- 最大 HP；
+- 攻击力；
+- 防御力；
+- 根据 HP 推导出的存活 / 死亡状态。
 
-- an attacker;
-- a target;
-- a base damage multiplier;
-- an optional critical hit flag.
+一次攻击包含：
 
-Damage rules:
+- 攻击者；
+- 目标；
+- 基础伤害倍率；
+- 是否暴击。
 
-1. Raw damage = attacker attack power × base damage multiplier.
-2. A critical hit multiplies raw damage by `1.5`.
-3. Final damage = raw damage − target defense power.
-4. Final damage can never be lower than `1`.
-5. Damage is applied to the target HP.
-6. HP cannot fall below `0`.
-7. A dead target cannot be attacked.
-8. An attacker that is dead cannot attack.
+伤害规则：
 
-## Acceptance criteria
+1. 原始伤害 = 攻击者攻击力 × 基础伤害倍率。
+2. 暴击时，原始伤害再乘以 `1.5`。
+3. 最终伤害 = 原始伤害 − 目标防御力。
+4. 最终伤害最低为 `1`。
+5. 最终伤害作用到目标 HP。
+6. HP 不能低于 `0`。
+7. 已死亡的目标不能被攻击。
+8. 已死亡的攻击者不能发动攻击。
 
-Your implementation must demonstrate at least these cases:
+## 验收条件
 
-- normal attack;
-- defense reducing incoming damage;
-- minimum damage of 1;
-- critical hit;
-- target HP clamped to 0;
-- dead attacker rejected;
-- dead target rejected.
+实现至少要能验证以下情况：
 
-You may use assertions or a small test executable. Do not add a test framework unless you already know one and can set it up quickly.
+- 普通攻击；
+- 防御力减少受到的伤害；
+- 最低伤害为 1；
+- 暴击；
+- HP 最低被限制为 0；
+- 死亡攻击者的攻击被拒绝；
+- 对死亡目标的攻击被拒绝。
 
-## Constraints
+可以使用 `assert` 或写一个简单测试程序。
 
-- Use C++17 or later.
-- Keep the domain design small: target roughly 2–5 core types.
-- Do not add UI, engine code, rendering, ECS, serialization, networking, events, factories, dependency injection, or data-driven configuration.
-- Do not introduce inheritance unless you can explain why it is required by the current requirements.
-- Do not create a generic combat framework for hypothetical future features.
+如果你还不熟悉测试框架，本周不要为了使用测试框架额外增加复杂度。
 
-## C++ focus for this week
+## 限制
 
-Be able to explain every use of:
+- 使用 C++17 或更高版本。
+- 核心领域类型大约控制在 2～5 个。
+- 不要加入 UI、游戏引擎代码、渲染、ECS、序列化、网络、事件系统、Factory、依赖注入、数据驱动配置等。
+- 除非你能根据当前需求说明为什么必须使用，否则不要加入继承。
+- 不要为了未来可能出现的技能、Buff、属性克制、装备、联网等需求提前设计通用战斗框架。
 
-- value vs reference;
-- `const`;
-- public getter vs mutating method;
-- whether a pointer is needed anywhere;
-- why your chosen types own or do not own other objects.
+## 本周 C++ 重点
 
-You are not graded on using advanced C++. Simple, intentional C++ is better than clever C++.
+你需要能够解释：
 
-## Before writing implementation code
+- 为什么某个参数使用值、引用或指针；
+- 为什么某个位置需要或不需要 `const`；
+- 为什么使用 getter，为什么修改状态需要通过方法；
+- 是否真的需要任何指针；
+- 每个对象拥有什么数据，为什么；
+- 对象之间是否存在所有权关系。
 
-Complete `design.md` first and commit it separately.
+本周不考察高级 C++ 技巧。
 
-Recommended commit sequence:
+**简单但有明确理由的 C++，比复杂但说不清原因的写法更好。**
+
+## 写代码之前
+
+先完成 `design.md`，并单独提交一次。
+
+建议提交顺序：
 
 1. `week01: add initial design`
 2. `week01: implement damage resolution`
 3. `week01: refactor after implementation`
 4. `week01: add retrospective`
 
-This separation matters because the weekend review needs to compare your initial design with what you actually built.
+这样做是为了让周末复盘时，可以比较“你最初认为系统应该怎么设计”和“最后真正实现出来的结构”。
