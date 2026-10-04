@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="damage-resolution.vcxproj" Id="ff678607-19ce-415d-b9c5-2cd6f35038cc" />
+</Solution>

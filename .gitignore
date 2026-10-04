@@ -57,6 +57,7 @@ compile_commands.json
 *.log
 *.bak
 *.swp
+*.vs
 
 # vcpkg
 vcpkg_installed/
@@ -67,3 +68,4 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+/weeks/01-damage-resolution/damage-resolution/damage-r.ff678607
