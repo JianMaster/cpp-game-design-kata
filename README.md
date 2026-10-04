@@ -1,27 +1,38 @@
-# C++ Game Design Kata
+# C++ 游戏系统设计训练
 
-A focused training repository for improving the ability to turn game-system requirements into implementable C++ designs.
+这个仓库专门用来训练：把一个游戏系统需求，转换成可以真正落地实现的 C++ 设计。
 
-The goal is not to collect design patterns or build large demo games. Each kata trains the same conversion chain:
+训练重点不是背设计模式，也不是做大型 Demo，而是反复练习同一条转换链：
 
-**Requirement → Execution Flow → State Changes → Responsibilities → Interfaces → Implementation → Refactoring → Retrospective**
+**需求 → 执行流程 → 状态变化 → 职责划分 → 接口设计 → 实现 → 重构 → 复盘**
 
-## Training rules
+## 训练规则
 
-1. One small game-system problem per week.
-2. Before coding, complete the week's `design.md`.
-3. Keep the first design small. Do not add abstractions only for hypothetical future requirements.
-4. Prefer 3–5 core domain types unless the problem clearly requires more.
-5. Do not use `Manager`, `System`, `Service`, `Controller`, or `Factory` as a substitute for an unclear responsibility. If you use one, explain its concrete job.
-6. Implement the smallest version that satisfies the acceptance criteria.
-7. After implementation, compare the final code with the original design and complete `retrospective.md`.
-8. AI may review your reasoning, point out missing cases, and challenge design choices. Do not ask AI for the complete solution before producing your own design.
+1. 每周只做一个小型游戏系统问题。
+2. 写代码前，必须先完成当周的 `design.md`。
+3. 第一版设计尽量小，不要为了“以后可能会有的需求”提前增加抽象。
+4. 除非问题本身确实需要，否则核心领域类型尽量控制在 3～5 个。
+5. 不要用 `Manager`、`System`、`Service`、`Controller`、`Factory` 这些名字来掩盖没有想清楚的职责。如果使用，必须能明确说明它具体做什么。
+6. 第一版只实现满足验收条件的最小方案。
+7. 实现完成后，把最终代码和最初设计进行对比，再填写 `retrospective.md`。
+8. 可以让 AI 检查你的推理、指出遗漏、挑战设计，但在你完成自己的设计之前，不要直接让 AI 给出完整实现。
 
-## C++ focus
+## C++ 训练重点
 
-Besides system design, each week will emphasize one or two C++ engineering topics that matter in game-programming interviews and production code: value/reference/pointer semantics, `const`, RAII, ownership, STL containers, polymorphism vs composition, move semantics, lifetime management, testing, allocations, and basic performance reasoning.
+除了系统设计，每周还会刻意训练 1～2 个和游戏开发求职相关的 C++ 工程能力，例如：
 
-## Weekly structure
+- 值 / 引用 / 指针语义
+- `const`
+- RAII
+- 所有权与生命周期
+- STL 容器
+- 继承与组合的取舍
+- move semantics
+- 测试
+- 动态分配
+- 基础性能意识
+
+## 每周目录结构
 
 ```text
 weeks/
@@ -31,19 +42,28 @@ weeks/
     retrospective.md
 ```
 
-Your implementation can add `include/`, `src/`, `tests/`, and `CMakeLists.txt` inside each week's directory as needed.
+实现时可以按需要在每周目录中增加：
 
-## What counts as progress
+```text
+include/
+src/
+tests/
+CMakeLists.txt
+```
 
-Finishing code is not enough. Weekly review focuses on:
+## 什么才算“进步”
 
-- how quickly a requirement becomes an executable design;
-- whether the execution path is complete;
-- whether state changes and failure paths are identified;
-- whether responsibilities and data ownership are clear;
-- whether interfaces are sufficient without over-design;
-- how much the final implementation differs from the initial design;
-- whether rework decreases over time;
-- whether C++ semantics are chosen intentionally and can be explained.
+代码写完不等于进步。每周复盘主要观察：
 
-The long-term target is to receive an unfamiliar game-system requirement and reach a small, defensible, implementable design without getting stuck between architecture and code.
+- 从拿到需求到形成可实现设计，所需时间是否缩短；
+- 执行流程是否完整；
+- 是否能识别状态变化和失败路径；
+- 职责与数据所有权是否清楚；
+- 接口是否足够支撑实现，同时没有过度设计；
+- 最终实现与初始设计的差距是否缩小；
+- 大规模返工是否减少；
+- C++ 的语义选择是否有明确理由，并且能解释出来。
+
+长期目标是：
+
+> 面对一个陌生的游戏系统需求时，不再卡在“我大概知道架构，但不知道第一行怎么写”，而是能较快推导出一个小而合理、可以真正开始编码的详细设计。
