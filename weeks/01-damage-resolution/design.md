@@ -1,22 +1,26 @@
-# Week 01 — Initial Design
+# Week 01 — 初始设计
 
-Complete this file **before writing implementation code**.
+**必须在写实现代码之前完成这个文件。**
 
-Do not try to make it elegant. The purpose is to force the architecture-to-code transition into explicit steps.
+不要追求优雅。
 
-## 1. Entry point
+这个文件的目的，是强迫你把“我大概知道架构”继续向下拆，直到变成可以真正开始编码的步骤。
 
-What starts one attack?
+## 1. 入口
 
-Write the concrete operation in one sentence.
+一次攻击是由什么操作开始的？
+
+请用一句具体的话描述。
 
 > TODO
 
-## 2. Execution flow
+## 2. 执行流程
 
-Write the complete happy-path sequence as numbered steps.
+把正常情况下的一次完整攻击，按照实际发生顺序写出来。
 
-Example format only:
+只写业务流程，不要先套设计模式。
+
+例如格式：
 
 1. ...
 2. ...
@@ -24,85 +28,88 @@ Example format only:
 
 > TODO
 
-## 3. State changes
+## 3. 状态变化
 
-List every piece of game state that can change during an attack.
+列出一次攻击过程中，所有可能发生变化的游戏状态。
 
-For each one, write:
+对每个状态说明：
 
-- owner;
-- old value conceptually;
-- new value conceptually;
-- who is allowed to change it.
-
-> TODO
-
-## 4. Failure / rejected paths
-
-List every reason the operation can be rejected **before** state is changed.
+- 它属于谁；
+- 原来的值在概念上是什么；
+- 变化后的值是什么；
+- 谁被允许修改它。
 
 > TODO
 
-## 5. Responsibilities
+## 4. 失败 / 拒绝路径
 
-List the core types you think are needed.
-
-For each type, describe its responsibility using verbs, not vague nouns.
-
-Bad:
-
-- `BattleManager`: manages battle.
-
-Better:
-
-- `Character`: owns HP and enforces valid HP changes.
+列出所有应该在修改状态之前拒绝这次攻击的情况。
 
 > TODO
 
-## 6. Data ownership
+## 5. 职责划分
 
-For each relationship between your types, answer:
+列出你认为当前需求真正需要的核心类型。
 
-- who owns the object?
-- does another object need a reference, pointer, value copy, or only a parameter during a call?
-- why?
+描述职责时尽量使用“动词”，不要使用含糊的名词。
 
-> TODO
+不好的例子：
 
-## 7. Interface draft
+- `BattleManager`：管理战斗。
 
-Write only declarations/pseudocode-level signatures, not implementation bodies.
+更好的例子：
 
-Include the minimum methods you currently believe are necessary.
+- `Character`：持有 HP，并保证 HP 修改后仍然有效。
 
 > TODO
 
-## 8. Unknowns
+## 6. 数据所有权
 
-What are you still unsure about before coding?
+对于类型之间的关系，回答：
 
-Examples:
-
-- where should validation live?
-- should damage calculation mutate anything?
-- should attack return a result object?
-
-Do not hide uncertainty. Record it.
+- 谁拥有这个对象？
+- 另一个对象是否真的需要长期持有它？
+- 是需要值拷贝、引用、指针，还是只在一次函数调用中作为参数传入？
+- 为什么？
 
 > TODO
 
-## 9. Design prediction
+## 7. 接口草稿
 
-Before coding, answer these three questions:
+只写声明或伪代码级的方法签名。
 
-1. Which part of this design are you most confident will survive implementation unchanged?
-2. Which part is most likely to change?
-3. What would cause you to introduce another type?
+**不要写实现。**
+
+只列出你目前认为实现需求所必需的最小接口。
 
 > TODO
 
-## 10. Time-to-start metric
+## 8. 当前还不确定的问题
 
-Record approximately how long it took from reading `requirements.md` until you felt ready to write the first implementation line.
+开始编码前，你还有哪些地方没有想清楚？
+
+例如：
+
+- 校验应该放在哪里？
+- 伤害计算本身应该修改状态吗？
+- 一次攻击是否应该返回结果对象？
+
+不要隐藏不确定性，直接记录。
+
+> TODO
+
+## 9. 设计预测
+
+写代码之前回答：
+
+1. 你认为哪一部分设计最可能在实现后保持不变？
+2. 你认为哪一部分最可能被修改？
+3. 出现什么具体情况时，你才会增加新的类型？
+
+> TODO
+
+## 10. 从需求到开工所需时间
+
+记录你从开始阅读 `requirements.md`，到“我已经知道第一段实现代码应该写什么”为止，大约用了多久。
 
 > TODO
