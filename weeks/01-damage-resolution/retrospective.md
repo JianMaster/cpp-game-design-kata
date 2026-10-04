@@ -1,67 +1,75 @@
-# Week 01 — Retrospective
+# Week 01 — 复盘
 
-Complete this after the implementation is working and after any refactoring you choose to do.
+在实现能够正常运行，并完成你认为必要的重构之后填写。
 
-## 1. Initial design vs final implementation
+## 1. 初始设计 vs 最终实现
 
-What changed between `design.md` and the final code?
-
-> TODO
-
-## 2. Wrong predictions
-
-Which original assumptions were wrong, incomplete, or unnecessary?
+`design.md` 中的设计和最终代码相比，哪些地方发生了变化？
 
 > TODO
 
-## 3. Rework
+## 2. 错误预测
 
-What code did you have to substantially rewrite, move, or delete? Why?
-
-> TODO
-
-## 4. Over-design check
-
-Did you add any abstraction that the requirements did not actually need?
-
-If yes, what signal should help you avoid this next time?
+最初有哪些判断是错误的、不完整的，或者后来发现根本没有必要？
 
 > TODO
 
-## 5. C++ decisions
+## 3. 返工
 
-Explain the most important choices involving:
+哪些代码被你明显重写、移动或删除了？
 
-- value / reference / pointer;
-- `const`;
-- ownership / lifetime;
-- encapsulation of mutable state.
+为什么？
 
 > TODO
 
-## 6. What was difficult?
+## 4. 过度设计检查
 
-Separate difficulty into these categories where possible:
+你有没有加入当前需求实际上并不需要的抽象？
 
-- understanding the requirements;
-- decomposing the execution flow;
-- assigning responsibilities;
-- designing interfaces;
-- C++ syntax / standard library / tooling;
-- debugging.
+如果有，下次应该通过什么信号更早发现自己正在过度设计？
 
 > TODO
 
-## 7. Design-to-code assessment
+## 5. C++ 设计选择
 
-At what point did you stop knowing what the next line or next method should be?
+解释这次实现里最重要的 C++ 决策：
 
-If you did not get stuck, what made the implementation path clear?
+- 值 / 引用 / 指针；
+- `const`；
+- 所有权 / 生命周期；
+- 可变状态的封装。
+
+不要只写“这样比较好”，说明具体原因。
 
 > TODO
 
-## 8. One improvement for next week
+## 6. 哪一步最困难？
 
-Choose exactly one behavior to change next week.
+尽量把困难分类：
+
+- 理解需求；
+- 拆执行流程；
+- 分配职责；
+- 设计接口；
+- C++ 语法 / 标准库 / 工具；
+- Debug。
+
+> TODO
+
+## 7. 从设计到代码的断点
+
+你在什么时候再次出现了：
+
+> “我不知道下一行代码 / 下一个方法该写什么”
+
+如果没有卡住，说明是什么让实现路径变得清晰。
+
+> TODO
+
+## 8. 下周只改进一件事
+
+只选择一个你下周要改变的行为。
+
+不要写多个。
 
 > TODO
